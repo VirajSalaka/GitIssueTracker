@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="GitCallSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log level="custom">
+        <property expression="//s" name="s"/>
+    </log>
+    <call blocking="true">
+        <endpoint key="GitEndpoint"/>
+    </call>
+    <log level="full"/>
+    <property name="conf:customresource/test-file.txt@gitissues" scope="registry" type="STRING" value="sdfdfdf"/>
+    <drop/>
+</sequence>

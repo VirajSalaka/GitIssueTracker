@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/git" name="GitApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/view/*">
+        <inSequence>
+            <payloadFactory media-type="json">
+                <format> {"issueCount" : "$1"} </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('registry', 'conf:customresource/test-file.txt@gitissues')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
