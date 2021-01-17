@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <task class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz" name="GitIssueTask" xmlns="http://ws.apache.org/ns/synapse">
-    <trigger interval="100000"/>
-    <property name="sequenceName" value="GitCallSequence" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+    <trigger count="2" interval="30"/>
     <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
         <a xmlns="">
             <s>dsdf</s>
         </a>
     </property>
-    <property name="injectTo" value="sequence" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+    <property name="injectTo" value="proxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
+    <property name="proxyName" value="GitIssueProxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
 </task>

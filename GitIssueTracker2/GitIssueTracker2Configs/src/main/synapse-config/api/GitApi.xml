@@ -5,7 +5,7 @@
             <payloadFactory media-type="json">
                 <format> {"issueCount" : "$1"} </format>
                 <args>
-                    <arg evaluator="xml" expression="get-property('registry', 'conf:customresource/test-file.txt@gitissues')"/>
+                    <arg evaluator="xml" expression="get-property('registry', 'conf:customresource/test-file.txt@gitissuesold')"/>
                 </args>
             </payloadFactory>
             <respond/>

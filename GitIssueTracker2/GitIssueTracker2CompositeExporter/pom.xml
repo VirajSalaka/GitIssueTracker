@@ -9,6 +9,7 @@
   <name>GitIssueTracker2CompositeExporter</name>
   <description>GitIssueTracker2CompositeExporter</description>
   <properties>
+    <com.example.proxy-service_._GitIssueProxy>capp/EnterpriseServiceBus</com.example.proxy-service_._GitIssueProxy>
     <com.example.sequence_._GitCallSequence>capp/EnterpriseServiceBus</com.example.sequence_._GitCallSequence>
     <com.example.task_._GitIssueTask>capp/EnterpriseServiceBus</com.example.task_._GitIssueTask>
     <com.example.api_._GitApi>capp/EnterpriseServiceBus</com.example.api_._GitApi>
@@ -37,6 +38,12 @@
     <dependency>
       <groupId>com.example.api</groupId>
       <artifactId>GitApi</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.proxy-service</groupId>
+      <artifactId>GitIssueProxy</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>

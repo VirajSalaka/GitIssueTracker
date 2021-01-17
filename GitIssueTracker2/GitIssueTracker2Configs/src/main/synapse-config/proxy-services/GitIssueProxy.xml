@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="GitIssueProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <log level="custom">
+                <property expression="//s" name="s"/>
+            </log>
+            <call blocking="true">
+                <endpoint key="GitEndpoint"/>
+            </call>
+            <log level="full"/>
+            <property expression="//*[local-name()='open_issues_count']" name="conf:customresource/test-file.txt@gitissues" scope="registry" type="STRING"/>
+            <property expression="get-property('registry', 'conf:customresource/test-file.txt@gitissuesold')" name="oldIssueCount" scope="default" type="STRING"/>
+            <property expression="get-property('registry', 'conf:customresource/test-file.txt@gitissues')" name="currentIssueCount" scope="default" type="STRING"/>
+            <class name="org.example.App">
+                <property expression="get-property('registry', 'conf:customresource/test-file.txt@gitissues')" name="currentIssueCount"/>
+                <property expression="get-property('registry', 'conf:customresource/test-file.txt@gitissuesold')" name="oldIssueCount"/>
+            </class>
+            <property expression="get-property('default', 'IssueCount')" name="conf:customresource/test-file.txt@gitissuesold" scope="registry" type="STRING"/>
+            <drop/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+</proxy>

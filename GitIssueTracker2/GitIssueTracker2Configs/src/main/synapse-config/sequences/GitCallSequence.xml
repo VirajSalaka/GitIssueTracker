@@ -7,6 +7,13 @@
         <endpoint key="GitEndpoint"/>
     </call>
     <log level="full"/>
-    <property name="conf:customresource/test-file.txt@gitissues" scope="registry" type="STRING" value="sdfdfdf"/>
+    <property expression="//*[local-name()='open_issues_count']" name="conf:customresource/test-file.txt@gitissues" scope="registry" type="STRING"/>
+    <property expression="get-property('registry', 'conf:customresource/test-file.txt@gitissuesold')" name="oldIssueCount" scope="default" type="STRING"/>
+    <property expression="get-property('registry', 'conf:customresource/test-file.txt@gitissues')" name="currentIssueCount" scope="default" type="STRING"/>
+    <class name="org.example.App">
+        <property expression="get-property('registry', 'conf:customresource/test-file.txt@gitissues')" name="currentIssueCount"/>
+        <property expression="get-property('registry', 'conf:customresource/test-file.txt@gitissuesold')" name="oldIssueCount"/>
+    </class>
+    <property expression="get-property('default', 'IssueCount')" name="conf:customresource/test-file.txt@gitissuesold" scope="registry" type="STRING"/>
     <drop/>
 </sequence>
